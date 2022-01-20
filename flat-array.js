@@ -1,10 +1,10 @@
 function flatArray(arr) {
   let flatArr = [];
   for(ar in arr) {
-    if(Array.isArray(ar)) {
-      flatArr = [...flatArr,...flatArray(ar)];
+    if(Array.isArray(arr[ar])) {
+      flatArr = [...flatArr, ...flatArray(arr[ar])];
     } else {
-      flatArr.push(ar);
+      flatArr.push(arr[ar]);
     }
   }
   return flatArr;
@@ -12,4 +12,4 @@ function flatArray(arr) {
 
 const arr = [1, [2], [[3]], [[[5]]], 'hello'];
 
-flatArray(arr);
+flatArray(arr)  // [1, 2, 3, 5, 'hello']
